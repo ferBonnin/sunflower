@@ -34,7 +34,7 @@ import com.google.samples.apps.sunflower.viewmodels.PlantListViewModel
 class PlantListFragment : Fragment() {
 
     private val viewModel: PlantListViewModel by viewModels {
-        InjectorUtils.providePlantListViewModelFactory(this)
+        InjectorUtils.providePlantListViewModelFactory(requireContext())
     }
 
     override fun onCreateView(

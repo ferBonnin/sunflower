@@ -61,7 +61,7 @@ class PlantDetailFragment : Fragment() {
                 override fun add(plant: Plant?) {
                     plant?.let {
                         hideAppBarFab(fab)
-                        plantDetailViewModel.addPlantToGarden()
+                        //plantDetailViewModel.addPlantToGarden()
                         Snackbar.make(root, R.string.added_plant_to_garden, Snackbar.LENGTH_LONG)
                             .show()
                     }

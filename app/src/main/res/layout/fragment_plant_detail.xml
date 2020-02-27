@@ -64,7 +64,6 @@
                     android:id="@+id/detail_image"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/plant_detail_app_bar_height"
-                    android:contentDescription="@string/plant_detail_image_content_description"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
                     app:imageFromUrl="@{viewModel.plant.imageUrl}"
@@ -75,11 +74,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:background="@android:color/transparent"
-                    app:titleTextColor="?attr/colorOnSurface"
-                    app:layout_collapseMode="pin"
+                    android:minHeight="15dp"
+                    app:buttonGravity="center_vertical"
                     app:contentInsetStartWithNavigation="0dp"
+                    app:layout_collapseMode="pin"
+                    app:menu="@menu/menu_plant_detail"
                     app:navigationIcon="@drawable/ic_detail_back"
-                    app:menu="@menu/menu_plant_detail" />
+                    app:titleTextColor="?attr/colorOnSurface" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -121,7 +122,7 @@
                     android:layout_marginEnd="@dimen/margin_small"
                     android:gravity="center_horizontal"
                     android:text="@string/watering_needs_prefix"
-                    android:textColor="?attr/colorAccent"
+                    android:textColor="@color/sunflower_green_300"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +150,7 @@
                     android:layout_marginTop="@dimen/margin_small"
                     android:layout_marginEnd="@dimen/margin_small"
                     android:minHeight="@dimen/plant_description_min_height"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="#EEB1B0B0"
                     android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -167,11 +168,13 @@
             android:layout_height="34dp"
             android:onClick="@{() -> callback.add(viewModel.plant)}"
             android:tint="@android:color/white"
+            app:elevation="1dp"
+            app:ensureMinTouchTargetSize="false"
             app:fabSize="mini"
-            app:shapeAppearance="@style/ShapeAppearance.Sunflower.FAB"
             app:isGone="@{viewModel.isPlanted}"
             app:layout_anchor="@id/appbar"
             app:layout_anchorGravity="bottom|end"
+            app:pressedTranslationZ="3dp"
             app:srcCompat="@drawable/ic_plus" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
